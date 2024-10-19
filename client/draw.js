@@ -1,4 +1,4 @@
-const CANVAS = document.getElementById("myCANVAS");
+const CANVAS = document.getElementById("myCanvas");
 const CTX = CANVAS.getContext("2d");
 draw();
 
