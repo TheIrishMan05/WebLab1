@@ -34,6 +34,15 @@ function updateTable(data) {
 
     let row = table.insertRow();
     data.forEach((element) => {
+        if(element === "true"){
+            let cell = row.insertCell();
+            cell.innerHTML = element;
+            cell.classList.add("hit");
+        } else if (element === "false"){
+            let cell = row.insertCell();
+            cell.innerHTML = element;
+            cell.classList.add("miss");
+        }
         let cell = row.insertCell();
         cell.innerHTML = element;
     });
