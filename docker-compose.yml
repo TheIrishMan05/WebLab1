@@ -1,0 +1,20 @@
+networks:
+  dev:
+
+services:
+  backend:
+    build:
+      context: ./backend
+    networks:
+      - dev
+
+  nginx:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:90"
+    depends_on:
+      - backend
+    networks:
+      - dev

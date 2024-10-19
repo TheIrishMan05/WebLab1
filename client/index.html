@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta content="Машкин Григорий Андреевич" name="author">
+    <meta content="Веб-программирование. Лабораторная работа №1" name="description">
+    <link href="stylesheets/styles.css" rel="stylesheet">
+    <title>Веб-программирование: Лабораторная работа №1</title>
+</head>
+
+<body>
+<header>
+    <div class="menu">
+        <input class="burger-checkbox" id="burger-checkbox" type="checkbox">
+        <label class="burger" for="burger-checkbox">
+            <span></span>
+        </label>
+        <ul class="menu-list">
+            <li><a class="menu-item" href="https://se.ifmo.ru/">Сайт ФПИиКТ ИТМО</a></li>
+            <li><a class="menu-item" href="https://github.com/TheIrishMan05">Профиль на Github</a></li>
+        </ul>
+    </div>
+    <div>
+        <h2>Веб-программирование, Лабораторная работа №1, Вариант 409109</h2>
+        <div id="credit">
+            Машкин Григорий Андреевич, P3230
+        </div>
+    </div>
+</header>
+
+<main>
+    <div id="input-container">
+        <div>
+            <h3>Валидация введённых значений:</h3>
+        </div>
+        <div>
+            Выберите значение X:
+        </div>
+
+        <div class="d-table">
+            <div class="d-tr">
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-4">
+                        -4
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-3">
+                        -3
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-2">
+                        -2
+                    </label>
+                </div>
+            </div>
+            <div class="d-tr">
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-1">
+                        -1
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="0">
+                        0
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="1">
+                        1
+                    </label>
+                </div>
+            </div>
+            <div class="d-tr">
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="2">
+                        2
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="3">
+                        3
+                    </label>
+                </div>
+                <div class="d-td">
+                    <label>
+                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="4">
+                        4
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            Введите Y:
+            <label for="label_y"></label>
+            <input id="label_y" maxlength="6" name="Y-input" placeholder="не менее -3 и не более 5" required
+                   type="text">
+        </div>
+
+        <div>
+            Выберите значение R:
+        </div>
+        <div class="d-table">
+            <button class="illuminated animated" id="r_1" name="R-button" onclick=setValueR(id) type="button" value="1">
+                1
+            </button>
+            <button class="illuminated animated" id="r_2" name="R-button" onclick=setValueR(id) type="button" value="2">
+                2
+            </button>
+            <button class="illuminated animated" id="r_3" name="R-button" onclick=setValueR(id) type="button" value="3">
+                3
+            </button>
+            <button class="illuminated animated" id="r_4" name="R-button" onclick=setValueR(id) type="button" value="4">
+                4
+            </button>
+            <button class="illuminated animated" id="r_5" name="R-button" onclick=setValueR(id) type="button" value="5">
+                5
+            </button>
+        </div>
+        <div>
+            <button id="check-button">Проверить данные</button>
+        </div>
+        <div id="result-text"></div>
+    </div>
+    <table id="output-table">
+        <thead>
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Result</th>
+            <th>Execution time</th>
+            <th>Current time</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div id="canvas-container">
+        <canvas height="250px" id="myCanvas" width="250px"></canvas>
+    </div>
+</main>
+<footer>
+    <figure>
+        <figcaption>2024</figcaption>
+    </figure>
+</footer>
+
+<script src="draw.js"></script>
+<script src="validate.js"></script>
+<script src="dataManager.js"></script>
+</body>
+</html>
