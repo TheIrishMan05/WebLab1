@@ -16,39 +16,45 @@ function manageData() {
                 });
                 updateTable(array);
             }).catch((e) => {
-            setText("#result-text", "error: " + e.message);
-            setClass("#result-text", "errorStub");
-            setDisplay("#result-text", "block");
+            document.getElementById("result-text").innerText = "error: " + e.message;
+            document.getElementById("result-text").classList.add("errorStub");
+            document.getElementById("result-text").style.display = "block";
+            setTimeout(() => {
+                    document.getElementById("result-text").style.display = "none"},
+                5000);
         });
 
     } else {
-        setText("#result-text", "Некоторые из параметров X, Y, R - невалидны. Убедитесь в корректности данных и попробуйте ещё раз.");
-        setClass("#result-text", "errorStub");
-        setDisplay("#result-text", "block");
+        document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
+        document.getElementById("result-text").classList.add("errorStub");
+        document.getElementById("result-text").style.display = "block";
+        setTimeout(() => {
+                document.getElementById("result-text").style.display = "none"},
+            5000);
     }
 }
 
 function updateTable(data) {
     let table = document.getElementsByTagName('tbody')[0];
-
-
     let row = table.insertRow();
+    data.unshift(value_X, value_Y, value_R);
+    data.push(new Date.now().toLocaleString());
     data.forEach((element) => {
-        if(element === "true"){
-            let cell = row.insertCell();
-            cell.innerHTML = element;
-            cell.classList.add("hit");
-        } else if (element === "false"){
-            let cell = row.insertCell();
-            cell.innerHTML = element;
-            cell.classList.add("miss");
-        }
         let cell = row.insertCell();
         cell.innerHTML = element;
+        if(element === "true"){
+            cell.classList.add("hit");
+        } else if (element === "false"){
+            cell.classList.add("miss");
+        }
     });
     table.innerHTML += row;
-    setText("#result-text", "Данные были успешно обработаны.");
-    setClass("#result-text", "outputStub");
-    setDisplay("#result-text", "block");
+    document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
+    document.getElementById("result-text").classList.add("outputStub");
+    document.getElementById("result-text").style.display = "block";
+    setTimeout(() => {
+        document.getElementById("result-text").style.display = "none"},
+            5000);
+    drawPoint(value_X, value_Y, value_R);
 }
 

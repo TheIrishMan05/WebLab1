@@ -15,7 +15,7 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover !important;
 }
 
 .burger-checkbox {
@@ -148,7 +148,7 @@ tfoot * {
 
 
 main {
-    display: inline-grid;
+    display: grid;
     grid-template-rows: repeat(3, 350px);
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-flow: column dense;
@@ -174,11 +174,16 @@ main {
 input {
     width: 100%;
     border: 2px solid #178473;
+    margin: 5px;
     border-radius: 20px;
     background-color: white;
     display: flex;
     align-content: center;
     flex-direction: revert;
+}
+
+label{
+    text-align: center;
 }
 
 input[type=radio] {
@@ -248,25 +253,23 @@ canvas {
     outline: none;
 }
 
-.d-table {
-    display: table;
+fieldset{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.r-input {
+    display: grid;
     width: 100%;
+    grid-template-columns: repeat(5, 20%);
+    align-items: center;
     border-collapse: collapse;
-}
-
-.d-tr {
-    display: table-row;
-}
-
-.d-td {
-    display: table-cell;
-    text-align: center;
-    border: none;
-    vertical-align: middle;
-}
-
-.d-td:not(.no-p) {
-    padding: 4px;
+    padding: 20px;
 }
 
 .hit {
@@ -303,7 +306,7 @@ hr {
     border-collapse: collapse;
     display: grid;
     grid-column-start: auto;
-    grid-row: span 2;
+    grid-row-start: span 2;
     margin: 25px auto;
     width: 100%;
 }
@@ -311,7 +314,8 @@ hr {
 #output-table td, #output-table th {
     padding: 15px;
     border: 1px solid #178473;
-    width: 100%;
+    width: 100px;
+
 }
 
 .notifications {

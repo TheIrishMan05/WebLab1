@@ -105,13 +105,15 @@ function draw() {
 }
 
 function drawPoint(x, y, r) {
-    if (x > r + 5 || x < -1 * r - 5) {
-        x.setCustomValidity("Выход за пределы графика по оси X.\nНевозможно отобразить точку");
-        draw();
-    } else if (y > r + 5 || y < -1 * r - 5) {
-        y.setCustomValidity("Выход за пределы графика по оси Y.\nНевозможно отобразить точку");
-        draw();
+    if (x > r + 5 || x < -1 * r - 5 || y > r + 5 || y < -1 * r - 5) {
+        document.getElementById("result-text").innerText = "Выход за пределы графика.\nТочка не может быть отображена";
+        document.getElementById("result-text").classList.add("errorStub");
+        document.getElementById("result-text").style.display = "block";
+        setTimeout(() => {
+                document.getElementById("result-text").style.display = "none"},
+            5000);
     } else {
+        draw();
         CTX.fillStyle = "green";
         CTX.beginPath();
         CTX.moveTo(150, 150);

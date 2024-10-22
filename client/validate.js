@@ -1,5 +1,4 @@
 let value_X, value_Y, value_R = 0;
-let checkButton = document.getElementById("check-button");
 let input_X = document.querySelector("input[name=X-radio]:checked");
 
 function setValueX() {
@@ -22,12 +21,12 @@ function validateX() {
 }
 
 function validateY() {
-    const yRegexp = /-?\d+[,.?\d+]*/i
+    const yRegexp = /-?\d+[.?\d+]*/i
     let input = document.getElementById("label_y");
     const validityStateY = input.validity;
-    if (yRegexp.test(input.value) && input.value.replace(",", ".") >= -3
-        && input.value.replace(",", ".") <= 5) {
-        value_Y = input.value.replace(",", ".");
+    if (yRegexp.test(input.value) && input.value >= -3
+        && input.value <= 5) {
+        value_Y = input.value;
         return true;
     } else if (!yRegexp.test(input.value)) {
         validityStateY.setCustomValidity("Значение Y не валидно");
@@ -41,21 +40,6 @@ function validateY() {
 
 function validateR() {
     return value_R != null;
-
 }
 
-function setText(selector, value) {
-    document.getElementById(selector).innerText = value;
-}
-
-function setDisplay(selector, value) {
-    document.getElementById(selector).style.display = value;
-}
-
-function setClass(selector, value) {
-    document.getElementById(selector).classList.add(value);
-}
-
-checkButton.onclick = function () {
-    manageData();
-}
+document.getElementById("check-button").onclick = manageData;

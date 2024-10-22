@@ -33,72 +33,47 @@
         <div>
             <h3>Валидация введённых значений:</h3>
         </div>
-        <div>
+        <fieldset>
+        <legend>
             Выберите значение X:
-        </div>
-
-        <div class="d-table">
-            <div class="d-tr">
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-4">
-                        -4
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-3">
-                        -3
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-2">
-                        -2
-                    </label>
-                </div>
-            </div>
-            <div class="d-tr">
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-1">
-                        -1
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="0">
-                        0
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="1">
-                        1
-                    </label>
-                </div>
-            </div>
-            <div class="d-tr">
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="2">
-                        2
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="3">
-                        3
-                    </label>
-                </div>
-                <div class="d-td">
-                    <label>
-                        <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="4">
-                        4
-                    </label>
-                </div>
-            </div>
-        </div>
+        </legend>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-4">
+                -4
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-3">
+                -3
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-2">
+                -2
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="-1">
+                -1
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="0">
+                0
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="1">
+                1
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="2">
+                2
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="3">
+                3
+            </label>
+            <label>
+                <input class="illuminated animated" name="X-radio" onchange=setValueX() type="radio" value="4">
+                4
+            </label>
+        </fieldset>
 
         <div>
             Введите Y:
@@ -110,7 +85,7 @@
         <div>
             Выберите значение R:
         </div>
-        <div class="d-table">
+        <div class="r-input">
             <button class="illuminated animated" id="r_1" name="R-button" onclick=setValueR(id) type="button" value="1">
                 1
             </button>
@@ -144,7 +119,6 @@
         </tr>
         </thead>
         <tbody>
-
         </tbody>
     </table>
     <div id="canvas-container">
