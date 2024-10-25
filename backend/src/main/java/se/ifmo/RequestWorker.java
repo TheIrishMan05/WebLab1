@@ -10,8 +10,10 @@ import java.util.Arrays;
 public class RequestWorker {
 
     public boolean handle() {
+        log.info("Server has accepted data");
         boolean result = new Validator().checkArea(parseRequest());
         if (result) {
+            log.info("Data has been successfully processed");
             return true;
         } else {
             log.info("Invalid format of values in some parameters. Please, change these values and try again.");

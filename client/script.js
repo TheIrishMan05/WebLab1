@@ -1,6 +1,21 @@
+let value_X, value_Y, value_R = 0;
 const CANVAS = document.getElementById("myCanvas");
 const CTX = CANVAS.getContext("2d");
 draw();
+
+function setValueX(id){
+    if(value_X != null){
+        value_X = document.getElementById(id).value;
+    }
+}
+
+function setValueR(id) {
+    if(value_R != null){
+        value_R = document.getElementById(id).value;
+        draw();
+    }
+    draw();
+}
 
 function draw() {
     CTX.clearRect(0, 0, CANVAS.width, CANVAS.height);
@@ -123,5 +138,91 @@ function drawPoint(x, y, r) {
     }
 }
 
+function validateX() {
+    return value_X != null && !isNaN(value_X) && isFinite(value_X);
+}
 
+function validateY() {
+    const yRegexp = /-?\d+[.?\d+]*/i
+    let input = document.getElementById("label_y");
+    const validityStateY = input.validity;
+    if (yRegexp.test(input.value) && input.value >= -3
+        && input.value <= 5) {
+        value_Y = input.value;
+        return true;
+    } else if (!yRegexp.test(input.value)) {
+        validityStateY.setCustomValidity("Значение Y не валидно");
+        input.value = "";
+        return false;
+    } else {
+        validityStateY.setCustomValidity("Выход за пределы отрезка [-3; 5]");
+        return false;
+    }
+}
+
+function validateR() {
+    return value_R != null && !isNaN(value_R) && isFinite(value_R);
+}
+
+document.getElementById("check-button").onclick = manageData;
+
+function manageData() {
+
+    if (validateX() && validateY() && validateR() === true) {
+
+        let params = `x=${encodeURIComponent(value_X)}&y=${encodeURIComponent(value_Y)}&r=${encodeURIComponent(value_R)}`;
+
+        fetch(`https://localhost:8000/server-application?${params}`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                let array = [];
+                let keys = Object.keys(json);
+                keys.forEach(function (key) {
+                    array.push(json[key])
+                });
+                updateTable(array);
+            }).catch((e) => {
+            document.getElementById("result-text").innerText = "error: " + e.message;
+            document.getElementById("result-text").classList.add("errorStub");
+            document.getElementById("result-text").style.display = "block";
+            setTimeout(() => {
+                    document.getElementById("result-text").style.display = "none"},
+                5000);
+        });
+
+    } else {
+        document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
+        document.getElementById("result-text").classList.add("errorStub");
+        document.getElementById("result-text").style.display = "block";
+        setTimeout(() => {
+                document.getElementById("result-text").style.display = "none"},
+            5000);
+    }
+}
+
+function updateTable(data) {
+    let table = document.getElementsByTagName('tbody')[0];
+    let row = table.insertRow();
+    data.unshift(value_X, value_Y, value_R);
+    data.push(new Date.now().toLocaleString());
+    data.forEach((element) => {
+        let cell = row.insertCell();
+        cell.innerHTML = element;
+        if(element === "true"){
+            cell.classList.add("hit");
+        } else if (element === "false"){
+            cell.classList.add("miss");
+        }
+    });
+    table.innerHTML += row;
+    document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
+    document.getElementById("result-text").classList.add("outputStub");
+    document.getElementById("result-text").style.display = "block";
+    setTimeout(() => {
+            document.getElementById("result-text").style.display = "none"},
+        5000);
+    drawPoint(value_X, value_Y, value_R);
+}
 
