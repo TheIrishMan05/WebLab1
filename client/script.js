@@ -169,7 +169,6 @@ document.getElementById("check-button").onclick = manageData;
 function manageData() {
 
     if (validateX() && validateY() && validateR() === true) {
-        console.log("Successful");
         let params = `x=${encodeURIComponent(value_X)}&y=${encodeURIComponent(value_Y)}&r=${encodeURIComponent(value_R)}`;
 
         fetch(`https://localhost:8000/server-application?${params}`)
