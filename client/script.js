@@ -143,19 +143,19 @@ function validateX() {
 }
 
 function validateY() {
-    const yRegexp = /-?\d+[.?\d+]*/i
+    const yRegexp = /-?\d+[.,?\d+]*/i
     let input = document.getElementById("y_input");
     const validityStateY = input.validity;
-    if (yRegexp.test(input.value) && input.value >= -3
-        && input.value <= 5) {
-        value_Y = input.value;
-        return true;
-    } else if (!yRegexp.test(input.value)) {
-        validityStateY.setCustomValidity("Значение Y не валидно");
-        input.value = "";
+    if (yRegexp.test(input.value)) {
+        let uncheckedValueY = input.value.replace(",", ".");
+        if (-3 <= uncheckedValueY <= 5) {
+            return true;
+        }
+        validityStateY.setCustomValidity("Выход за пределы отрезка [-3; 5]");
         return false;
     } else {
-        validityStateY.setCustomValidity("Выход за пределы отрезка [-3; 5]");
+        validityStateY.setCustomValidity("Значение Y не валидно");
+        input.value = "";
         return false;
     }
 }
