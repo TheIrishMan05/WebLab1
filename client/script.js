@@ -23,17 +23,17 @@ function draw() {
     CTX.beginPath();
     CTX.fillStyle = "blue";
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.lineTo(CANVAS.width / 2 + 30 * Math.cos(Math.PI), CANVAS.height / 2 + 30 * Math.sin(Math.PI));
-    CTX.lineTo(CANVAS.width / 2 + 30 * Math.sin(1.5 * Math.PI), CANVAS.height / 2 + 30 * Math.cos(1.5 * Math.PI));
-    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 30 * value_R / 5, Math.PI, 1.5 * Math.PI);
+    CTX.lineTo(CANVAS.width / 2 + 60 * Math.cos(Math.PI), CANVAS.height / 2 + 60 * Math.sin(Math.PI));
+    CTX.lineTo(CANVAS.width / 2 + 60 * Math.sin(1.5 * Math.PI), CANVAS.height / 2 + 60 * Math.cos(1.5 * Math.PI));
+    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 60 * value_R / 5, Math.PI, 1.5 * Math.PI);
     CTX.fill();
     CTX.closePath();
 
-    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 60 * value_R / 5, -60 * value_R / 5);
+    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 120 * value_R / 5, -120 * value_R / 5);
 
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 60 * value_R / 5);
-    CTX.lineTo(CANVAS.width / 2 + 30 * value_R / 5, CANVAS.height / 2);
+    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 120 * value_R / 5);
+    CTX.lineTo(CANVAS.width / 2 + 60 * value_R / 5, CANVAS.height / 2);
     CTX.fill();
 
     CTX.fillStyle = "black";
@@ -52,23 +52,23 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 - 30 * value_R / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 - 30 * value_R / 5, CANVAS.height / 2 - 5);
-    CTX.closePath();
-    CTX.stroke();
-    CTX.beginPath();
     CTX.moveTo(CANVAS.width / 2 - 60 * value_R / 5, CANVAS.height / 2 + 5);
     CTX.lineTo(CANVAS.width / 2 - 60 * value_R / 5, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 30 * value_R / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 + 30 * value_R / 5, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 - 120 * value_R / 5, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 - 120 * value_R / 5, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
     CTX.moveTo(CANVAS.width / 2 + 60 * value_R / 5, CANVAS.height / 2 + 5);
     CTX.lineTo(CANVAS.width / 2 + 60 * value_R / 5, CANVAS.height / 2 - 5);
+    CTX.closePath();
+    CTX.stroke();
+    CTX.beginPath();
+    CTX.moveTo(CANVAS.width / 2 + 120 * value_R / 5, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 + 120 * value_R / 5, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
 
@@ -87,35 +87,35 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 120 * value_R / 5);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 120 * value_R / 5);
+    CTX.closePath();
+    CTX.stroke();
+    CTX.beginPath();
     CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 60 * value_R / 5);
     CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 60 * value_R / 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 30 * value_R / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 30 * value_R / 5);
-    CTX.closePath();
-    CTX.stroke();
-    CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 30 * value_R / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 30 * value_R / 5);
-    CTX.closePath();
-    CTX.stroke();
-    CTX.beginPath();
     CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 60 * value_R / 5);
     CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 60 * value_R / 5);
+    CTX.closePath();
+    CTX.stroke();
+    CTX.beginPath();
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 120 * value_R / 5);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 120 * value_R / 5);
     CTX.fillText("R=" + value_R, 25, 25);
     CTX.closePath();
     CTX.stroke();
     if (value_R > 2) {
-        CTX.fillText("-R/2", CANVAS.width / 2 - 30 * value_R / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 - 60 * value_R / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("R/2", CANVAS.width / 2 + 30 * value_R / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("R", CANVAS.width / 2 + 60 * value_R / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 + 10, CANVAS.height / 2 + 60 * value_R / 5);
-        CTX.fillText("-R/2", CANVAS.width / 2 + 10, CANVAS.height / 2 + 30 * value_R / 5);
-        CTX.fillText("R", CANVAS.width / 2 - 20, CANVAS.height / 2 - 60 * value_R / 5);
-        CTX.fillText("R/2", CANVAS.width / 2 - 20, CANVAS.height / 2 - 30 * value_R / 5);
+        CTX.fillText("-R/2", CANVAS.width / 2 - 60 * value_R / 5, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 - 120 * value_R / 5, CANVAS.height / 2 + 10);
+        CTX.fillText("R/2", CANVAS.width / 2 + 60 * value_R / 5, CANVAS.height / 2 + 10);
+        CTX.fillText("R", CANVAS.width / 2 + 120 * value_R / 5, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 + 10, CANVAS.height / 2 + 120 * value_R / 5);
+        CTX.fillText("-R/2", CANVAS.width / 2 + 10, CANVAS.height / 2 + 60 * value_R / 5);
+        CTX.fillText("R", CANVAS.width / 2 - 20, CANVAS.height / 2 - 120 * value_R / 5);
+        CTX.fillText("R/2", CANVAS.width / 2 - 20, CANVAS.height / 2 - 60 * value_R / 5);
     }
 }
 
@@ -139,12 +139,12 @@ function drawPoint(x, y, r) {
 }
 
 function validateX() {
-    return value_X != null && !isNaN(value_X) && isFinite(value_X);
+    return value_X != null;
 }
 
 function validateY() {
     const yRegexp = /-?\d+[.?\d+]*/i
-    let input = document.getElementById("label_y");
+    let input = document.getElementById("y_input");
     const validityStateY = input.validity;
     if (yRegexp.test(input.value) && input.value >= -3
         && input.value <= 5) {
@@ -161,7 +161,7 @@ function validateY() {
 }
 
 function validateR() {
-    return value_R != null && !isNaN(value_R) && isFinite(value_R);
+    return value_R != null;
 }
 
 document.getElementById("check-button").onclick = manageData;
@@ -169,7 +169,7 @@ document.getElementById("check-button").onclick = manageData;
 function manageData() {
 
     if (validateX() && validateY() && validateR() === true) {
-
+        console.log("Successful");
         let params = `x=${encodeURIComponent(value_X)}&y=${encodeURIComponent(value_Y)}&r=${encodeURIComponent(value_R)}`;
 
         fetch(`https://localhost:8000/server-application?${params}`)
