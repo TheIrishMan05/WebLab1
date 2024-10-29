@@ -171,7 +171,7 @@ function manageData() {
     if (validateX() && validateY() && validateR() === true) {
         let params = `x=${encodeURIComponent(value_X)}&y=${encodeURIComponent(value_Y)}&r=${encodeURIComponent(value_R)}`;
 
-        fetch(`https://localhost:8000/server-application?${params}`)
+        fetch(`https://localhost:8070/server-application?${params}`)
             .then(function (response) {
                 return response.json();
             })
