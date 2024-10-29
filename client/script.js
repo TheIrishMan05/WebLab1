@@ -1,19 +1,14 @@
-let value_X, value_Y, value_R = 0;
+let value_X, value_Y, value_R;
 const CANVAS = document.getElementById("myCanvas");
 const CTX = CANVAS.getContext("2d");
 draw();
 
-function setValueX(id){
-    if(value_X != null){
-        value_X = document.getElementById(id).value;
-    }
+function setValueX(radio) {
+    value_X = parseInt(radio.value, 10);
 }
 
 function setValueR(id) {
-    if(value_R != null){
-        value_R = document.getElementById(id).value;
-        draw();
-    }
+    value_R = parseInt(document.getElementById(id).value, 10);
     draw();
 }
 
@@ -104,7 +99,6 @@ function draw() {
     CTX.beginPath();
     CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 120 * value_R / 5);
     CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 120 * value_R / 5);
-    CTX.fillText("R=" + value_R, 25, 25);
     CTX.closePath();
     CTX.stroke();
     if (value_R > 2) {
@@ -139,39 +133,39 @@ function drawPoint(x, y, r) {
 }
 
 function validateX() {
-    return value_X != null;
+    return value_X !== undefined;
 }
 
 function validateY() {
     const yRegexp = /-?\d+[.,?\d+]*/i
-    let input = document.getElementById("y_input");
-    const validityStateY = input.validity;
-    if (yRegexp.test(input.value)) {
-        let uncheckedValueY = input.value.replace(",", ".");
-        if (-3 <= uncheckedValueY <= 5) {
+    let input = document.querySelector("input[type=text]");
+    input.setAttribute('value', 'defaultValue');
+    if(yRegexp.test(input.value)) {
+        input.value.replaceAll(",", ".");
+        value_Y = parseInt(input.value, 10);
+        if(value_Y >= -3 && value_Y <= 5){
             return true;
+        } else {
+            input.setCustomValidity("Выход за пределы отрезка [-3, 5]");
+            return false;
         }
-        validityStateY.setCustomValidity("Выход за пределы отрезка [-3; 5]");
-        return false;
     } else {
-        validityStateY.setCustomValidity("Значение Y не валидно");
-        input.value = "";
+        input.setCustomValidity("Значение Y не валидно");
         return false;
     }
 }
 
 function validateR() {
-    return value_R != null;
+    return value_R !== undefined;
 }
 
 document.getElementById("check-button").onclick = manageData;
 
 function manageData() {
-
     if (validateX() && validateY() && validateR() === true) {
         let params = `x=${encodeURIComponent(value_X)}&y=${encodeURIComponent(value_Y)}&r=${encodeURIComponent(value_R)}`;
 
-        fetch(`https://localhost:8070/server-application?${params}`)
+        fetch(`https://localhost:8000/server-application?${params}`)
             .then(function (response) {
                 return response.json();
             })

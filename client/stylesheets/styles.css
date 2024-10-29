@@ -146,11 +146,8 @@ tfoot * {
 }
 
 .page {
-    display: grid;
-    grid-template-rows: repeat(3, 0.75fr);
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-flow: column;
-    align-items: start;
+    display: flex;
+    flex-direction: row;
     width: 100%;
     margin: 110px auto;
     padding: 30px;
@@ -161,10 +158,12 @@ tfoot * {
 
 #input-container {
     background-color: khaki;
-    width: 500px;
+    width: 60%;
     padding: 20px;
     border: 2px solid #178473;
     border-radius: 20px;
+    justify-self: flex-start;
+    align-self: stretch;
 }
 
 #input-container:hover{
@@ -305,8 +304,8 @@ hr {
 #output-table {
     border: 5px solid #178473;
     border-collapse: collapse;
-    grid-column-start: auto;
-    grid-row-start: span 2;
+    align-self: flex-end;
+    justify-self: flex-end;
     margin: 25px auto;
     width: 100%;
 }
