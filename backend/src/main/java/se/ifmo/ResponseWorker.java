@@ -29,7 +29,7 @@ public class ResponseWorker {
     private String getHttpResponse(boolean result, double totalTime) {
         var content = """
                 {
-                "isHit": %s
+                "isHit": %s,
                 "executionTime": %s
                 }
                 """.formatted(result ? "true" : "false", String.valueOf(totalTime));

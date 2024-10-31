@@ -22,7 +22,7 @@ public class RequestWorker {
     }
 
     private ArrayList<String> parseRequest() {
-        String[] reformedString = FCGIInterface.request.params.getProperty("QUERY_STRING").replaceAll("[a-z][A-Z]=", "").split("&");
+        String[] reformedString = FCGIInterface.request.params.getProperty("QUERY_STRING").replaceAll("[a-z]=", "").split("&");
         return new ArrayList<>(Arrays.asList(reformedString));
     }
 

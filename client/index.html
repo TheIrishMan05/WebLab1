@@ -28,81 +28,83 @@
         </div>
     </div>
 </header>
+    <div>
+        <h3>Валидация введённых значений:</h3>
+    </div>
     <div id="input-container">
-        <div>
-            <h3>Валидация введённых значений:</h3>
+        <div id="canvas-container">
+            <canvas height="350px" id="myCanvas" width="350px"></canvas>
         </div>
-        <fieldset>
-        <legend>
-            Выберите значение X:
-        </legend>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-4">
-                -4
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-3">
-                -3
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-2">
-                -2
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-1">
-                -1
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="0">
-                0
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="1">
-                1
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="2">
-                2
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="3">
-                3
-            </label>
-            <label>
-                <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="4">
-                4
-            </label>
-        </fieldset>
-
         <div>
+            <fieldset>
+                <legend>
+                    Выберите значение X:
+                </legend>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-4">
+                    -4
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-3">
+                    -3
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-2">
+                    -2
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="-1">
+                    -1
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="0">
+                    0
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="1">
+                    1
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="2">
+                    2
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="3">
+                    3
+                </label>
+                <label>
+                    <input class="illuminated animated" name="X-radio" onchange=setValueX(this) type="radio" value="4">
+                    4
+                </label>
+            </fieldset>
+
             Введите Y:
             <label for="y_input">
             </label><input id="y_input" maxlength="6" name="Y-input" placeholder="не менее -3 и не более 5" required
                                                 type="text">
-        </div>
-
-        <div>
-            Выберите значение R:
-        </div>
-        <div class="r-input">
-            <button class="illuminated animated" id="r_1" name="R-button" onclick=setValueR(id) type="button" value="1">
-                1
-            </button>
-            <button class="illuminated animated" id="r_2" name="R-button" onclick=setValueR(id) type="button" value="2">
-                2
-            </button>
-            <button class="illuminated animated" id="r_3" name="R-button" onclick=setValueR(id) type="button" value="3">
-                3
-            </button>
-            <button class="illuminated animated" id="r_4" name="R-button" onclick=setValueR(id) type="button" value="4">
-                4
-            </button>
-            <button class="illuminated animated" id="r_5" name="R-button" onclick=setValueR(id) type="button" value="5">
-                5
-            </button>
-        </div>
-        <div>
-            <button id="check-button">Проверить данные</button>
+            <div class="r-input">
+                <div>
+                    Выберите значение R:
+                </div>
+                <button class="illuminated animated" id="r_1" name="R-button" onclick=setValueR(id) type="button" value="1">
+                    1
+                </button>
+                <button class="illuminated animated" id="r_2" name="R-button" onclick=setValueR(id) type="button" value="2">
+                    2
+                </button>
+                <button class="illuminated animated" id="r_3" name="R-button" onclick=setValueR(id) type="button" value="3">
+                    3
+                </button>
+                <button class="illuminated animated" id="r_4" name="R-button" onclick=setValueR(id) type="button" value="4">
+                    4
+                </button>
+                <button class="illuminated animated" id="r_5" name="R-button" onclick=setValueR(id) type="button" value="5">
+                    5
+                </button>
+            </div>
+            <div>
+                <button id="check-button">Проверить данные</button>
+            </div>
         </div>
         <div id="result-text"></div>
         <table id="output-table">
@@ -119,9 +121,6 @@
             <tbody>
             </tbody>
         </table>
-    </div>
-    <div id="canvas-container">
-        <canvas height="350px" id="myCanvas" width="350px"></canvas>
     </div>
 <footer>
     <figure>
