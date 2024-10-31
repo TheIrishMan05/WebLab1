@@ -4,11 +4,11 @@ const CTX = CANVAS.getContext("2d");
 draw();
 
 function setValueX(radio) {
-    x = parseInt(radio.value, 10);
+    x = radio.value;
 }
 
 function setValueR(id) {
-    r = parseInt(document.getElementById(id).value, 10);
+    r = document.getElementById(id).value;
     draw();
 }
 
@@ -141,7 +141,7 @@ function validateY() {
     let input = document.querySelector("input[type=text]");
     if(yRegexp.test(input.value)) {
         input.value.replaceAll(",", ".");
-        y = parseInt(input.value, 10);
+        y = input.value;
         if(y >= -3 && y <= 5){
             return true;
         } else {
