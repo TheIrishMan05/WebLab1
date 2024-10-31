@@ -272,17 +272,6 @@ fieldset{
     padding: 20px;
 }
 
-.hit {
-    font-weight: bold;
-    color: #09a53d;
-}
-
-
-.miss {
-    font-weight: bold;
-    color: #a50909;
-}
-
 hr {
     color: forestgreen;
     width: 90%;
@@ -294,6 +283,10 @@ hr {
 
 .outputStub {
     background-color: #178473;
+}
+
+.warningStub {
+    background-color: #d77d31;
 }
 
 #output-container {
@@ -315,14 +308,6 @@ hr {
     border: 1px solid #178473;
     width: 100px;
 
-}
-
-.notifications {
-    position: fixed;
-    top: 30px;
-    right: 20px;
-    color: white;
-    padding: 1%;
 }
 
 #output-table th {

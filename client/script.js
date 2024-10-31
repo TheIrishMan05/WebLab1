@@ -111,14 +111,26 @@ function draw() {
     }
 }
 
-function drawPoint(x, y, r, result) {
-    draw();
-    result === true ? CTX.fillStyle = "green" : CTX.fillStyle = "red";
-    CTX.beginPath();
-    CTX.moveTo(150, 150);
-    CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
-    CTX.closePath();
-    CTX.fill();
+function drawPoint(x, y, r) {
+    if(x > r + 5 || y > r + 5 || x < -1 * r - 5 || y < -1 * r - 5 ) {
+        document.getElementById("result-text").innerText = "Выход за пределы видимости графика\nНевозможно отобразить точку.";
+        document.getElementById("result-text").classList.add("warningStub");
+        document.getElementById("result-text").style.display = "flex";
+        setTimeout(() => {
+                document.getElementById("result-text").style.display = "none";
+                document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
+            },
+            1000);
+        draw();
+    } else {
+        draw();
+        CTX.fillStyle = "#d77d31";
+        CTX.beginPath();
+        CTX.moveTo(150, 150);
+        CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
+        CTX.closePath();
+        CTX.fill();
+    }
 }
 
 function validateX() {
@@ -164,47 +176,45 @@ function manageData() {
                     keys.forEach(function (key) {
                         array.push(json[key])
                     });
+                    array.unshift(x, y, r);
+                    array.push(Date.now().toLocaleString());
                     updateTable(array);
             }).catch((e) => {
             document.getElementById("result-text").innerText = "error: " + e.message;
             document.getElementById("result-text").classList.add("errorStub");
-            document.getElementById("result-text").style.display = "block";
+            document.getElementById("result-text").style.display = "flex";
             setTimeout(() => {
-                    document.getElementById("result-text").style.display = "none"
+                    document.getElementById("result-text").style.display = "none";
+                    document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
                 },
-                5000)});
-        document.getElementById("result-text").setAttribute("class", "");
+                1000)});
     } else {
         document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
         document.getElementById("result-text").classList.add("errorStub");
-        document.getElementById("result-text").style.display = "block";
+        document.getElementById("result-text").style.display = "flex";
         setTimeout(() => {
                 document.getElementById("result-text").style.display = "none";
-                document.getElementById("result-text").setAttribute("class", "");
+                document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
             },
-            5000);
+            1000);
     }
 }
 
 function updateTable(data) {
     let table = document.getElementsByTagName('tbody')[0];
     let row = table.insertRow();
-    data.unshift(x, y, r);
-    data.push(Date.now());
     data.forEach((element) => {
         let cell = row.insertCell();
         cell.innerText = element;
-        element === true ? cell.classList.add("hit") : cell.classList.add("miss");
-        cell.setAttribute("class", "");
     });
     document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
     document.getElementById("result-text").classList.add("outputStub");
-    document.getElementById("result-text").style.display = "block";
+    document.getElementById("result-text").style.display = "flex";
     setTimeout(() => {
             document.getElementById("result-text").style.display = "none";
-            document.getElementById("result-text").setAttribute("class", "");
+            document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
             },
-        5000);
-    drawPoint(x, y, r, row[3]);
+        1000);
+    drawPoint(x, y, r);
 }
 
