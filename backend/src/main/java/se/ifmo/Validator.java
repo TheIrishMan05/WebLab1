@@ -10,6 +10,7 @@ import java.util.ArrayList;
 @Setter
 @Log4j2
 public class Validator {
+    private final int scaleConst = 32;
     private double x;
     private double y;
     private double r;
@@ -66,7 +67,7 @@ public class Validator {
 
     private boolean checkRectangle(ArrayList<String> params) {
         if (validateAll(params)) {
-            return getX() <= getR() && getY() <= getR();
+            return getX() <= 15 * getR() && getY() <= scaleConst * getR();
         } else {
             return false;
         }
@@ -74,7 +75,7 @@ public class Validator {
 
     private boolean checkCircle(ArrayList<String> params) {
         if (validateAll(params)) {
-            return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow((float) -getR() / 2, 2);
+            return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow(-scaleConst * getR() / 2, 2);
         } else {
             return false;
         }
@@ -82,7 +83,8 @@ public class Validator {
 
     private boolean checkTriangle(ArrayList<String> params) {
         if (validateAll(params)) {
-            return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow((float) -getR() / 2, 2);
+
+            return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow(-scaleConst * getR() / 2, 2);
         } else {
             return false;
         }

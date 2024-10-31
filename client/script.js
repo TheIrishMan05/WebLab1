@@ -18,17 +18,15 @@ function draw() {
     CTX.beginPath();
     CTX.fillStyle = "blue";
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.lineTo(CANVAS.width / 2 + 60 * Math.cos(Math.PI), CANVAS.height / 2 + 60 * Math.sin(Math.PI));
-    CTX.lineTo(CANVAS.width / 2 + 60 * Math.sin(1.5 * Math.PI), CANVAS.height / 2 + 60 * Math.cos(1.5 * Math.PI));
-    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 60 * r / 5, Math.PI, 1.5 * Math.PI);
+    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 16 * r , Math.PI, 1.5 * Math.PI);
     CTX.fill();
     CTX.closePath();
 
-    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 120 * r / 5, -120 * r / 5);
+    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 32 * r, -32 * r);
 
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 120 * r / 5);
-    CTX.lineTo(CANVAS.width / 2 + 60 * r / 5, CANVAS.height / 2);
+    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 32 * r);
+    CTX.lineTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2);
     CTX.fill();
 
     CTX.fillStyle = "black";
@@ -47,23 +45,23 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 - 60 * r / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 - 60 * r / 5, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 - 16 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 - 16 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 - 120 * r / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 - 120 * r / 5, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 - 32 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 - 32 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 60 * r / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 + 60 * r / 5, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 120 * r / 5, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 + 120 * r / 5, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 + 32 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 + 32 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
 
@@ -82,38 +80,38 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 120 * r / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 120 * r / 5);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 32 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 32 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 60 * r / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 60 * r / 5);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 16 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 16 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 60 * r / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 60 * r / 5);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 16 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 16 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 120 * r / 5);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 120 * r / 5);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 32 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 32 * r);
     CTX.closePath();
     CTX.stroke();
     if (r > 2) {
-        CTX.fillText("-R/2", CANVAS.width / 2 - 60 * r / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 - 120 * r / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("R/2", CANVAS.width / 2 + 60 * r / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("R", CANVAS.width / 2 + 120 * r / 5, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 + 10, CANVAS.height / 2 + 120 * r / 5);
-        CTX.fillText("-R/2", CANVAS.width / 2 + 10, CANVAS.height / 2 + 60 * r / 5);
-        CTX.fillText("R", CANVAS.width / 2 - 20, CANVAS.height / 2 - 120 * r / 5);
-        CTX.fillText("R/2", CANVAS.width / 2 - 20, CANVAS.height / 2 - 60 * r / 5);
+        CTX.fillText("-R/2", CANVAS.width / 2 - 16 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 - 32 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("R/2", CANVAS.width / 2 + 16 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("R", CANVAS.width / 2 + 32 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 - 25, CANVAS.height / 2 + 32 * r);
+        CTX.fillText("-R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 + 16 * r);
+        CTX.fillText("R", CANVAS.width / 2 - 25, CANVAS.height / 2 - 32 * r);
+        CTX.fillText("R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 - 16 * r);
     }
 }
 
-function drawPoint(x, y, r) {
+function drawPoint(x, y, r, result) {
     if (x > r + 5 || x < -1 * r - 5 || y > r + 5 || y < -1 * r - 5) {
         document.getElementById("result-text").innerText = "Выход за пределы графика.\nТочка не может быть отображена";
         document.getElementById("result-text").classList.add("errorStub");
@@ -123,7 +121,7 @@ function drawPoint(x, y, r) {
             5000);
     } else {
         draw();
-        CTX.fillStyle = "green";
+        result === "Попал" ? CTX.fillStyle = "green" : CTX.fillStyle = "red";
         CTX.beginPath();
         CTX.moveTo(150, 150);
         CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
@@ -205,11 +203,7 @@ function updateTable(data) {
     data.forEach((element) => {
         let cell = row.insertCell();
         cell.innerText = element;
-        if(element === "true"){
-            cell.classList.add("hit");
-        } else if (element === "false"){
-            cell.classList.add("miss");
-        }
+        element === "Попал" ? cell.classList.add("hit") : cell.classList.add("miss");
     });
     document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
     document.getElementById("result-text").classList.add("outputStub");
@@ -219,6 +213,6 @@ function updateTable(data) {
             document.getElementById("result-text").setAttribute("class", "");
             },
         5000);
-    drawPoint(x, y, r);
+    drawPoint(x, y, r, row[3]);
 }
 
