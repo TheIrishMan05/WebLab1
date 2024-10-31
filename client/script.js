@@ -18,15 +18,15 @@ function draw() {
     CTX.beginPath();
     CTX.fillStyle = "blue";
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 16 * r , Math.PI, 1.5 * Math.PI);
+    CTX.arc(CANVAS.width / 2, CANVAS.height / 2, 15 * r, Math.PI, 1.5 * Math.PI);
     CTX.fill();
     CTX.closePath();
 
-    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 32 * r, -32 * r);
+    CTX.fillRect(CANVAS.width / 2, CANVAS.height / 2, 30 * r, -30 * r);
 
     CTX.moveTo(CANVAS.width / 2, CANVAS.height / 2);
-    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 32 * r);
-    CTX.lineTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2);
+    CTX.lineTo(CANVAS.width / 2, CANVAS.height / 2 + 30 * r);
+    CTX.lineTo(CANVAS.width / 2 + 15 * r, CANVAS.height / 2);
     CTX.fill();
 
     CTX.fillStyle = "black";
@@ -45,23 +45,23 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 - 16 * r, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 - 16 * r, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 - 15 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 - 15 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 - 32 * r, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 - 32 * r, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 - 30 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 - 30 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 + 16 * r, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 + 15 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 + 15 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 32 * r, CANVAS.height / 2 + 5);
-    CTX.lineTo(CANVAS.width / 2 + 32 * r, CANVAS.height / 2 - 5);
+    CTX.moveTo(CANVAS.width / 2 + 30 * r, CANVAS.height / 2 + 5);
+    CTX.lineTo(CANVAS.width / 2 + 30 * r, CANVAS.height / 2 - 5);
     CTX.closePath();
     CTX.stroke();
 
@@ -80,54 +80,45 @@ function draw() {
     CTX.fill();
 
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 32 * r);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 32 * r);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 30 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 30 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 16 * r);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 16 * r);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 - 15 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 - 15 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 16 * r);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 16 * r);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 15 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 15 * r);
     CTX.closePath();
     CTX.stroke();
     CTX.beginPath();
-    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 32 * r);
-    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 32 * r);
+    CTX.moveTo(CANVAS.width / 2 + 5, CANVAS.height / 2 + 30 * r);
+    CTX.lineTo(CANVAS.width / 2 - 5, CANVAS.height / 2 + 30 * r);
     CTX.closePath();
     CTX.stroke();
     if (r > 2) {
-        CTX.fillText("-R/2", CANVAS.width / 2 - 16 * r, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 - 32 * r, CANVAS.height / 2 + 10);
-        CTX.fillText("R/2", CANVAS.width / 2 + 16 * r, CANVAS.height / 2 + 10);
-        CTX.fillText("R", CANVAS.width / 2 + 32 * r, CANVAS.height / 2 + 10);
-        CTX.fillText("-R", CANVAS.width / 2 - 25, CANVAS.height / 2 + 32 * r);
-        CTX.fillText("-R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 + 16 * r);
-        CTX.fillText("R", CANVAS.width / 2 - 25, CANVAS.height / 2 - 32 * r);
-        CTX.fillText("R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 - 16 * r);
+        CTX.fillText("-R/2", CANVAS.width / 2 - 15 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 - 30 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("R/2", CANVAS.width / 2 + 15 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("R", CANVAS.width / 2 + 30 * r, CANVAS.height / 2 + 10);
+        CTX.fillText("-R", CANVAS.width / 2 - 25, CANVAS.height / 2 + 30 * r);
+        CTX.fillText("-R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 + 15 * r);
+        CTX.fillText("R", CANVAS.width / 2 - 25, CANVAS.height / 2 - 30 * r);
+        CTX.fillText("R/2", CANVAS.width / 2 - 25, CANVAS.height / 2 - 15 * r);
     }
 }
 
 function drawPoint(x, y, r, result) {
-    if (x > r + 5 || x < -1 * r - 5 || y > r + 5 || y < -1 * r - 5) {
-        document.getElementById("result-text").innerText = "Выход за пределы графика.\nТочка не может быть отображена";
-        document.getElementById("result-text").classList.add("errorStub");
-        document.getElementById("result-text").style.display = "block";
-        setTimeout(() => {
-                document.getElementById("result-text").style.display = "none"},
-            5000);
-    } else {
-        draw();
-        result === "Попал" ? CTX.fillStyle = "green" : CTX.fillStyle = "red";
-        CTX.beginPath();
-        CTX.moveTo(150, 150);
-        CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
-        CTX.closePath();
-        CTX.fill();
-    }
+    draw();
+    result === true ? CTX.fillStyle = "green" : CTX.fillStyle = "red";
+    CTX.beginPath();
+    CTX.moveTo(150, 150);
+    CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
+    CTX.closePath();
+    CTX.fill();
 }
 
 function validateX() {
@@ -135,10 +126,9 @@ function validateX() {
 }
 
 function validateY() {
-    const yRegexp = /-?\d+[.,?\d+]*/i
+    const yRegexp = /-?\d+[.?\d+]*/i
     let input = document.querySelector("input[type=text]");
     if(yRegexp.test(input.value)) {
-        input.value.replaceAll(",", ".");
         y = input.value;
         if(y >= -3 && y <= 5){
             return true;
@@ -183,6 +173,7 @@ function manageData() {
                     document.getElementById("result-text").style.display = "none"
                 },
                 5000)});
+        document.getElementById("result-text").setAttribute("class", "");
     } else {
         document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
         document.getElementById("result-text").classList.add("errorStub");
@@ -203,7 +194,8 @@ function updateTable(data) {
     data.forEach((element) => {
         let cell = row.insertCell();
         cell.innerText = element;
-        element === "Попал" ? cell.classList.add("hit") : cell.classList.add("miss");
+        element === true ? cell.classList.add("hit") : cell.classList.add("miss");
+        cell.setAttribute("class", "");
     });
     document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
     document.getElementById("result-text").classList.add("outputStub");

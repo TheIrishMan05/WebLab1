@@ -18,7 +18,7 @@ public class ResponseWorker {
 
             LocalDateTime endTime = LocalDateTime.now();
 
-            double totalTime = Duration.between(startTime, endTime).toNanos();
+            double totalTime = Duration.between(startTime, endTime).toMillis();
 
             String httpResponse = getHttpResponse(result, totalTime);
 
@@ -30,9 +30,9 @@ public class ResponseWorker {
         var content = """
                 {
                 "result": %s,
-                "executionTime": %s ns
+                "executionTime": %s
                 }
-                """.formatted(result ? "Попал" : "Промахнулся", String.valueOf(totalTime));
+                """.formatted(result ? "true" : "false", String.valueOf(totalTime));
         return """
                 HTTP/1.1 200 OK
                 Content-Type: application/json
