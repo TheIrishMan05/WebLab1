@@ -205,10 +205,6 @@ button {
     background-color: wheat;
 }
 
-button:focus {
-    
-}
-
 #credit {
     padding-bottom: 20px;
 }
