@@ -7,6 +7,8 @@
 
 1. Client-side: Javascript, HTML + CSS
 2. Server-side: Java + FastCGI + lombok
+3. Server: nginx
+4. Сборка проекта: Docker
 
 ### Как запустить лабораторную?
 
