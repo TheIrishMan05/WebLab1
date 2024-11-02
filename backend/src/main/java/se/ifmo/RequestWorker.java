@@ -16,7 +16,7 @@ public class RequestWorker {
             log.info("Data has been successfully processed");
             return true;
         } else {
-            log.info("Invalid format of values in some parameters. Please, change these values and try again.");
+            log.warn("Invalid format of values in some parameters. Please, change these values and try again.");
             return false;
         }
     }

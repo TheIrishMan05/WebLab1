@@ -111,28 +111,6 @@ function draw() {
     }
 }
 
-function drawPoint(x, y, r) {
-    if(x > r + 5 || y > r + 5 || x < -1 * r - 5 || y < -1 * r - 5 ) {
-        document.getElementById("result-text").innerText = "Выход за пределы видимости графика\nНевозможно отобразить точку.";
-        document.getElementById("result-text").classList.add("warningStub");
-        document.getElementById("result-text").style.display = "flex";
-        setTimeout(() => {
-                document.getElementById("result-text").style.display = "none";
-                document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
-            },
-            1000);
-        draw();
-    } else {
-        draw();
-        CTX.fillStyle = "#d77d31";
-        CTX.beginPath();
-        CTX.moveTo(150, 150);
-        CTX.arc(150 + 60 * x / r, 150 - 60 * y / r, 4, 0, 2 * Math.PI);
-        CTX.closePath();
-        CTX.fill();
-    }
-}
-
 function validateX() {
     return x !== undefined;
 }
@@ -176,8 +154,10 @@ function manageData() {
                     keys.forEach(function (key) {
                         array.push(json[key])
                     });
+            const timeElapsed = Date.now();
+            const currentDate = new Date(timeElapsed);
                     array.unshift(x, y, r);
-                    array.push(Date.now().toLocaleString());
+            array.push(currentDate.toLocaleString());
                     updateTable(array);
             }).catch((e) => {
             document.getElementById("result-text").innerText = "error: " + e.message;
@@ -190,7 +170,7 @@ function manageData() {
                 1000)});
     } else {
         document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
-        document.getElementById("result-text").classList.add("errorStub");
+        document.getElementById("result-text").classList.add("warningStub");
         document.getElementById("result-text").style.display = "flex";
         setTimeout(() => {
                 document.getElementById("result-text").style.display = "none";
@@ -215,6 +195,5 @@ function updateTable(data) {
             document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
             },
         1000);
-    drawPoint(x, y, r);
 }
 

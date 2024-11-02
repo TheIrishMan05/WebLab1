@@ -137,6 +137,7 @@ footer {
 
 thead * {
     margin-top: 4%;
+    border: #178473;
 }
 
 tfoot * {
@@ -201,6 +202,11 @@ a {
 
 button {
     width: 70px;
+    background-color: wheat;
+}
+
+button:focus {
+    
 }
 
 #credit {
@@ -286,7 +292,7 @@ hr {
 }
 
 .warningStub {
-    background-color: #d77d31;
+    background-color: #ec9706;
 }
 
 #output-container {
@@ -297,8 +303,6 @@ hr {
 #output-table {
     border: 5px solid #178473;
     border-collapse: collapse;
-    align-self: flex-end;
-    justify-self: flex-end;
     margin: 25px auto;
     width: 100%;
 }
@@ -307,7 +311,7 @@ hr {
     padding: 15px;
     border: 1px solid #178473;
     width: 100px;
-
+    font-weight: bold;
 }
 
 #output-table th {
