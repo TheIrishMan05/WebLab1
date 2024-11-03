@@ -141,44 +141,42 @@ function manageData() {
                 headers: {
                     accept: 'application/json',
                 },
-            }).then(function (response) {
-                return response.json();
-            }).then(function (json) {
-                    let array = [];
-                    let keys = Object.keys(json);
-                    keys.forEach(function (key) {
-                        array.push(json[key])
-                    });
-            const timeElapsed = Date.now();
-            const currentDate = new Date(timeElapsed);
-                    array.unshift(x, y, r);
-            array.push(currentDate.toLocaleString());
-                    updateTable(array);
-            }).catch((e) => {
-            document.getElementById("result-text").innerText = "error: " + e.message;
-            document.getElementById("result-text").classList.add("errorStub");
-            document.getElementById("result-text").style.display = "flex";
-            setTimeout(() => {
+            }).then(response => response.json()
+            ).then(json => {
+                let array = [];
+                let keys = Object.keys(json);
+                keys.forEach(key => array.push(json[key]));
+                const timeElapsed = Date.now();
+                const currentDate = new Date(timeElapsed);
+                array.unshift(x, y, r);
+                array.push(currentDate.toLocaleString());
+                updateTable(array);
+            }).catch(e => {
+                document.getElementById("result-text").innerText = "error: " + e.message;
+                document.getElementById("result-text").classList.add("errorStub");
+                document.getElementById("result-text").style.display = "flex";
+                setTimeout(() => {
                     document.getElementById("result-text").style.display = "none";
-                    document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
-                },
-                1000)});
+                    document.getElementById("result-text").classList
+                        .remove(...document.getElementById("result-text").classList);
+                }, 1000)});
     } else {
-        document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны.\nУбедитесь в корректности данных и попробуйте ещё раз.";
+        document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны." +
+            "\nУбедитесь в корректности данных и попробуйте ещё раз.";
         document.getElementById("result-text").classList.add("warningStub");
         document.getElementById("result-text").style.display = "flex";
         setTimeout(() => {
                 document.getElementById("result-text").style.display = "none";
-                document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
-            },
-            1000);
+                document.getElementById("result-text").classList
+                    .remove(...document.getElementById("result-text").classList);
+            }, 1000);
     }
 }
 
 function updateTable(data) {
     let table = document.getElementsByTagName('tbody')[0];
     let row = table.insertRow();
-    data.forEach((element) => {
+    data.forEach(element => {
         let cell = row.insertCell();
         cell.innerText = element;
     });
@@ -187,8 +185,8 @@ function updateTable(data) {
     document.getElementById("result-text").style.display = "flex";
     setTimeout(() => {
             document.getElementById("result-text").style.display = "none";
-            document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
-            },
-        1000);
+            document.getElementById("result-text").classList
+                .remove(...document.getElementById("result-text").classList);
+            }, 1000);
 }
 
