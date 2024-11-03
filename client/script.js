@@ -1,6 +1,7 @@
 let x, y, r;
 const CANVAS = document.getElementById("myCanvas");
 const CTX = CANVAS.getContext("2d");
+document.getElementById("check-button").onclick = manageData;
 draw();
 
 function setValueX(radio) {
@@ -130,8 +131,6 @@ function validateY() {
 function validateR() {
     return r !== undefined;
 }
-
-document.getElementById("check-button").onclick = manageData;
 
 function manageData() {
     if (validateX() && validateY() && validateR() === true) {
