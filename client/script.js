@@ -8,7 +8,8 @@ function setValueX(radio) {
 }
 
 function setValueR(id) {
-    r = document.getElementById(id).value;
+    let input = document.getElementById(id);
+    r = input.value;
     draw();
 }
 
@@ -118,16 +119,10 @@ function validateX() {
 function validateY() {
     const yRegexp = /-?\d+[.?\d+]*/i
     let input = document.querySelector("input[type=text]");
-    if(yRegexp.test(input.value)) {
+    if (yRegexp.test(input.value)) {
         y = input.value;
-        if(y >= -3 && y <= 5){
-            return true;
-        } else {
-            input.setCustomValidity("Выход за пределы отрезка [-3, 5]");
-            return false;
-        }
+        return y >= -3 && y <= 5;
     } else {
-        input.setCustomValidity("Значение Y не валидно");
         return false;
     }
 }
