@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @Getter
@@ -18,7 +19,7 @@ public class Validator {
         try {
             double r = Double.parseDouble(input);
             setR(r);
-            return r >= 1 && r <= 5;
+            return r >= 1 && r <= 5 && BigDecimal.valueOf(r).scale() <= 4;
         } catch (NumberFormatException e) {
             log.error("error of r validation: {}", e.getMessage());
             return false;
@@ -29,7 +30,7 @@ public class Validator {
         try {
             double y = Double.parseDouble(input);
             setY(y);
-            return y >= -3 && y <= 5;
+            return y >= -3 && y <= 5 && BigDecimal.valueOf(y).scale() <= 4;
         } catch (NumberFormatException e) {
             log.error("error of y validation: {}", e.getMessage());
             return false;
@@ -40,7 +41,7 @@ public class Validator {
         try {
             double x = Double.parseDouble(input);
             setX(x);
-            return x >= -4 && x <= 4;
+            return x >= -4 && x <= 4 && BigDecimal.valueOf(x).scale() <= 4;
         } catch (NumberFormatException e) {
             log.error("error of x validation: {}", e.getMessage());
             return false;
