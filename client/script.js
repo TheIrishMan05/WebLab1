@@ -132,16 +132,18 @@ function validateR() {
     return r !== undefined;
 }
 
-function manageData() {
+async function manageData() {
     if (validateX() && validateY() && validateR() === true) {
-        let params = `x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}&r=${encodeURIComponent(r)}`;
-        fetch(`/server-application/?${params}`, {
+        try {
+            let params = `x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}&r=${encodeURIComponent(r)}`;
+            const response = await fetch(`/server-application/?${params}`, {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
                 },
-            }).then(response => response.json()
-            ).then(json => {
+            });
+            let json = await response.json()
+            await json.then(() => {
                 let array = [];
                 let keys = Object.keys(json);
                 keys.forEach(key => array.push(json[key]));
@@ -150,25 +152,27 @@ function manageData() {
                 array.unshift(x, y, r);
                 array.push(currentDate.toLocaleString());
                 updateTable(array);
-            }).catch(e => {
-                document.getElementById("result-text").innerText = "error: " + e.message;
-                document.getElementById("result-text").classList.add("errorStub");
-                document.getElementById("result-text").style.display = "flex";
-                setTimeout(() => {
-                    document.getElementById("result-text").style.display = "none";
-                    document.getElementById("result-text").classList
-                        .remove(...document.getElementById("result-text").classList);
-                }, 1000)});
-    } else {
-        document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны." +
-            "\nУбедитесь в корректности данных и попробуйте ещё раз.";
-        document.getElementById("result-text").classList.add("warningStub");
-        document.getElementById("result-text").style.display = "flex";
-        setTimeout(() => {
+            });
+        } catch (e) {
+            document.getElementById("result-text").innerText = "error: " + e.message;
+            document.getElementById("result-text").classList.add("errorStub");
+            document.getElementById("result-text").style.display = "flex";
+            setTimeout(() => {
                 document.getElementById("result-text").style.display = "none";
                 document.getElementById("result-text").classList
-                    .remove(...document.getElementById("result-text").classList);
-            }, 1000);
+                .remove(...document.getElementById("result-text").classList);
+        }, 1000);
+        }
+    } else {
+    document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны." +
+        "\nУбедитесь в корректности данных и попробуйте ещё раз.";
+    document.getElementById("result-text").classList.add("warningStub");
+    document.getElementById("result-text").style.display = "flex";
+    setTimeout(() => {
+        document.getElementById("result-text").style.display = "none";
+        document.getElementById("result-text").classList
+            .remove(...document.getElementById("result-text").classList);
+    }, 1000);
     }
 }
 
@@ -176,16 +180,17 @@ function updateTable(data) {
     let table = document.getElementsByTagName('tbody')[0];
     let row = table.insertRow();
     data.forEach(element => {
-        let cell = row.insertCell();
-        cell.innerText = element;
-    });
+            let cell = row.insertCell();
+                cell.innerText = element;
+            });
     document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
     document.getElementById("result-text").classList.add("outputStub");
     document.getElementById("result-text").style.display = "flex";
     setTimeout(() => {
-            document.getElementById("result-text").style.display = "none";
-            document.getElementById("result-text").classList
-                .remove(...document.getElementById("result-text").classList);
-            }, 1000);
+        document.getElementById("result-text").style.display = "none";
+        document.getElementById("result-text").classList
+            .remove(...document.getElementById("result-text").classList);
+        }, 1000);
 }
+
 
