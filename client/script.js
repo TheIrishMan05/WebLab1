@@ -143,16 +143,14 @@ async function manageData() {
                 },
             });
             let json = await response.json()
-            await json.then(() => {
-                let array = [];
-                let keys = Object.keys(json);
-                keys.forEach(key => array.push(json[key]));
-                const timeElapsed = Date.now();
-                const currentDate = new Date(timeElapsed);
-                array.unshift(x, y, r);
-                array.push(currentDate.toLocaleString());
-                updateTable(array);
-            });
+            let array = [];
+            let keys = Object.keys(json);
+            keys.forEach(key => array.push(json[key]));
+            const timeElapsed = Date.now();
+            const currentDate = new Date(timeElapsed);
+            array.unshift(x, y, r);
+            array.push(currentDate.toLocaleString());
+            updateTable(array);
         } catch (e) {
             document.getElementById("result-text").innerText = "error: " + e.message;
             document.getElementById("result-text").classList.add("errorStub");
