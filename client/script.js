@@ -149,11 +149,10 @@ function manageData() {
             keys.forEach(function (key) {
                 array.push(json[key])
             });
-            const timeElapsed = Date.now();
-            const currentDate = new Date(timeElapsed);
+            const RAW_DATE = Date.now();
+            const CURRENT_DATA = new Date(RAW_DATE);
             array.unshift(x, y, r);
-            array.push(Date.now().toLocaleString());
-            array.push(currentDate.toLocaleString());
+            array.push(CURRENT_DATA.toLocaleString());
             updateTable(array);
         }).catch((e) => {
             document.getElementById("result-text").innerText = "error: " + e.message;
