@@ -53,40 +53,31 @@ public class Validator {
     }
 
     public boolean checkArea(ArrayList<String> params) {
-        if (getX() >= 0 && getY() >= 0) {
-            return checkRectangle(params);
-        } else if (getX() <= 0 && getY() >= 0) {
-            return checkCircle(params);
-        } else if (getX() >= 0 && getY() < 0) {
-            return checkTriangle(params);
-        } else {
-            return false;
-        }
-
-    }
-
-    private boolean checkRectangle(ArrayList<String> params) {
-        if (validateAll(params)) {
-            return getX() <= getR() && getY() <= getR();
+        if(validateAll(params)) {
+            if (getX() >= 0 && getY() >= 0) {
+                return checkRectangle();
+            } else if (getX() <= 0 && getY() >= 0) {
+                return checkCircle();
+            } else if (getX() >= 0 && getY() < 0) {
+                return checkTriangle();
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
     }
 
-    private boolean checkCircle(ArrayList<String> params) {
-        if (validateAll(params)) {
-            return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow(-getR() / 2, 2);
-        } else {
-            return false;
-        }
+    private boolean checkRectangle() {
+        return getX() <= getR() && getY() <= getR();
     }
 
-    private boolean checkTriangle(ArrayList<String> params) {
-        if (validateAll(params)) {
-            return getX() <= getR() / 2 && getY() <= -getR() && -2 * getX() + getY() <= getR();
-        } else {
-            return false;
-        }
+    private boolean checkCircle() {
+        return Math.pow(getX(), 2) + Math.pow(getY(), 2) <= Math.pow(-getR() / 2, 2);
+    }
+
+    private boolean checkTriangle() {
+        return getX() <= getR() / 2 && getY() <= -getR() && -2 * getX() + getY() <= getR();
     }
 
 
