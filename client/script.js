@@ -163,10 +163,10 @@ function manageData() {
                 document.getElementById("result-text").classList
                     .remove(...document.getElementById("result-text").classList);
             }, 1000);
-            });
+        });
     } else {
         document.getElementById("result-text").innerText = "Некоторые из параметров X, Y, R - невалидны." +
-        "\nУбедитесь в корректности данных и попробуйте ещё раз.";
+            "\nУбедитесь в корректности данных и попробуйте ещё раз.";
         document.getElementById("result-text").classList.add("warningStub");
         document.getElementById("result-text").style.display = "flex";
         setTimeout(() => {
@@ -175,21 +175,21 @@ function manageData() {
                 .remove(...document.getElementById("result-text").classList);
         }, 1000);
     }
+}
 
-    function updateTable(data) {
-        let table = document.getElementsByTagName('tbody')[0];
-        let row = table.insertRow();
-        data.forEach((element) => {
-            let cell = row.insertCell();
-            cell.innerText = element;
-        });
-        document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
-        document.getElementById("result-text").classList.add("outputStub");
-        document.getElementById("result-text").style.display = "flex";
-        setTimeout(() => {
-                document.getElementById("result-text").style.display = "none";
-                document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
-            },
-            1000);
-    }
+function updateTable(data) {
+    let table = document.getElementsByTagName('tbody')[0];
+    let row = table.insertRow();
+    data.forEach((element) => {
+        let cell = row.insertCell();
+        cell.innerText = element;
+    });
+    document.getElementById("result-text").innerText = "Данные были успешно обработаны.";
+    document.getElementById("result-text").classList.add("outputStub");
+    document.getElementById("result-text").style.display = "flex";
+    setTimeout(() => {
+            document.getElementById("result-text").style.display = "none";
+            document.getElementById("result-text").classList.remove(...document.getElementById("result-text").classList);
+        },
+        1000);
 }
