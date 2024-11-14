@@ -291,11 +291,6 @@ hr {
     background-color: #ec9706;
 }
 
-#output-container {
-    padding-bottom: 20px;
-    width: 500px;
-}
-
 #output-table {
     border: 5px solid #178473;
     border-collapse: collapse;
